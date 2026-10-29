@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فیزیک دهم | فصل ۱: فیزیک و اندازه‌گیری</title>
+<style>
+  :root{
+    --bg:#0f172a; --card:#1e293b; --accent:#38bdf8; --accent2:#a78bfa;
+    --text:#e2e8f0; --muted:#94a3b8; --good:#34d399;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',Tahoma,sans-serif;background:var(--bg);color:var(--text);line-height:1.9}
+  .container{max-width:900px;margin:0 auto;padding:20px}
+  header{background:linear-gradient(135deg,#1e3a8a,#0ea5e9);padding:50px 20px;text-align:center;border-radius:0 0 30px 30px}
+  header h1{font-size:2rem}
+  header p{color:#dbeafe;margin-top:10px}
+  nav{position:sticky;top:0;background:#0b1120cc;backdrop-filter:blur(8px);display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:12px;z-index:10}
+  nav a{color:var(--text);text-decoration:none;background:var(--card);padding:8px 16px;border-radius:20px;font-size:.9rem;transition:.2s}
+  nav a:hover{background:var(--accent);color:#0f172a}
+  section{background:var(--card);margin:25px 0;padding:25px;border-radius:18px;box-shadow:0 4px 15px #0005}
+  h2{color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:8px;margin-bottom:15px}
+  h3{color:var(--accent2);margin:15px 0 8px}
+  ul{padding-right:25px}
+  .formula{background:#0b1120;border-right:4px solid var(--accent);padding:12px 18px;border-radius:8px;margin:12px 0;font-family:'Courier New',monospace;direction:ltr;text-align:left;color:#7dd3fc;font-size:1.1rem}
+  .note{background:#134e4a66;border-right:4px solid var(--good);padding:12px 18px;border-radius:8px;margin:12px 0}
+  .quiz-q{margin:14px 0;padding:14px;border:1px solid #334155;border-radius:10px}
+  .quiz-q button{background:#334155;color:var(--text);border:none;padding:8px 14px;margin:6px 4px 0;border-radius:8px;cursor:pointer}
+  .quiz-q button:hover{background:var(--accent);color:#0f172a}
+  .quiz-q button.correct{background:var(--good);color:#052e16}
+  .quiz-q button.wrong{background:#ef4444;color:#fff}
+  table{width:100%;border-collapse:collapse;margin:12px 0}
+  th,td{border:1px solid #334155;padding:10px;text-align:center}
+  th{background:#0b1120;color:var(--accent)}
+  tr:nth-child(even){background:#ffffff08}
+  footer{text-align:center;padding:30px;color:var(--muted);font-size:.9rem}
+  #progress{position:fixed;bottom:0;right:0;height:5px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>⚡ فیزیک پایهٔ دهم — فصل ۱</h1>
+  <p>فیزیک و اندازه‌گیری | مبحث کامل + آزمون خودسنجی</p>
+</header>
+
+<nav>
+  <a href="#intro">معرفی</a>
+  <a href="#quantities">کمیت‌های فیزیکی</a>
+  <a href="#units">یکاهای SI</a>
+  <a href="#error">خطای اندازه‌گیری</a>
+  <a href="#dim">تحلیل بُعد</a>
+  <a href="#summary">جمع‌بندی</a>
+  <a href="#quiz">آزمون 📝</a>
+</nav>
+
+<div class="container">
+
+<section id="intro">
+  <h2>📖 معرفی فصل</h2>
+  <p>در این فصل با دنیای فیزیک آشنا می‌شویم؛ علمی که با اندازه‌گیری شروع می‌شود. فیزیک‌دانان برای توصیف جهان پیرامون، ابتدا باید کمیت‌های فیزیکی را اندازه بگیرند. چیزی که قابل اندازه‌گیری باشد، <b>کمیت فیزیکی</b> نامیده می‌شود.</p>
+  <div class="note">💡 نکته: «گرما»، «طول»، «زمان» و «جرم» کمیت فیزیکی هستند، اما «زیبایی» یا «دلنشینی» کمیت فیزیکی نیستند چون قابل اندازه‌گیری عددی نیستند.</div>
+</section>
+
+<section id="quantities">
+  <h2>🔢 کمیت‌های فیزیکی</h2>
+  <h3>کمیت‌های اصلی (پایه)</h3>
+  <p>هفت کمیت اصلی در سیستم بین‌المللی (SI) وجود دارد که سایر کمیت‌ها از آن‌ها مشتق می‌شوند:</p>
+  <table>
+    <tr><th>کمیت</th><th>یکا</th><th>نماد یکا</th></tr>
+    <tr><td>طول</td><td>متر</td><td>m</td></tr>
+    <tr><td>جرم</td><td>کیلوگرم</td><td>kg</td></tr>
+    <tr><td>زمان</td><td>ثانیه</td><td>s</td></tr>
+    <tr><td>دما</td><td>کلوین</td><td>K</td></tr>
+    <tr><td>جریان الکتریکی</td><td>آمپر</td><td>A</td></tr>
+    <tr><td>مقدار ماده</td><td>مول</td><td>mol</td></tr>
+    <tr><td>شدت نور</td><td>کندلا</td><td>cd</td></tr>
+  </table>
+  <h3>کمیت‌های مشتق</h3>
+  <p>کمیت‌هایی مانند سرعت، شتاب، نیرو، کار و انرژی که با ترکیب کمیت‌های اصلی ساخته می‌شوند:</p>
+  <ul>
+    <li><b>سرعت:</b> مسافت تقسیم بر زمان</li>
+    <li><b>شتاب:</b> تغییر سرعت تقسیم بر زمان</li>
+    <li><b>چگالی:</b> جرم تقسیم بر حجم</li>
+  </ul>
+</section>
+
+<section id="units">
+  <h2>📏 پیشوندهای مهم یکاها</h2>
+  <table>
+    <tr><th>پیشوند</th><th>نماد</th><th>ضریب</th></tr>
+    <tr><td>نانو</td><td>n</td><td>۱۰⁻⁹</td></tr>
+    <tr><td>میکرو</td><td>μ</td><td>۱۰⁻⁶</td></tr>
+    <tr><td>میلی</td><td>m</td><td>۱۰⁻³</td></tr>
+    <tr><td>سانتی</td><td>c</td><td>۱۰⁻²</td></tr>
+    <tr><td>کیلو</td><td>k</td><td>۱۰³</td></tr>
+    <tr><td>مگا</td><td>M</td><td>۱۰⁶</td></tr>
+    <tr><td>گیگا</td><td>G</td><td>۱۰⁹</td></tr>
+  </table>
+  <div class="formula">مثال: 1 km = 1000 m  |  1 cm = 0.01 m  |  1 nm = 10⁻⁹ m</div>
+</section>
+
+<section id="error">
+  <h2>⚠️ خطای اندازه‌گیری</h2>
+  <p>هیچ اندازه‌گیری بدون خطا نیست! خطا به دو دستهٔ تقسیم می‌شود:</p>
+  <ul>
+    <li><b>خطای تصادفی:</b> ناشی از عوامل غیرقابل کنترل؛ با تکرار اندازه‌گیری و میانگین‌گیری کاهش می‌یابد.</li>
+    <li><b>خطای سیستماتیک:</b> ناشی از نقص ابزار یا روش اندازه‌گیری؛ با کالیبراسیون ابزار کاهش می‌یابد.</li>
+  </ul>
+  <h3>دقت و صحت</h3>
+  <ul>
+    <li><b>دقت (Precision):</b> نزدیکی اندازه‌ها به یکدیگر در تکرارهای مختلف</li>
+    <li><b>صحت (Accuracy):</b> نزدیکی اندازه به مقدار واقعی</li>
+  </ul>
+  <div class="note">💡 یک ابزار ممکن است دقیق اما ناصحیح باشد (مثل ترازوی خراب که همیشه ۱۰ گرم اضافه نشان می‌دهد).</div>
+</section>
+
+<section id="dim">
+  <h2>🧮 تحلیل بُعد (Buckingham)</h2>
+  <p>با تحلیل بُعد می‌توان درستی رابطه‌های فیزیکی را بررسی کرد. ابعاد کمیت‌های اصلی:</p>
+  <div class="formula">[Length] = L   |   [Mass] = M   |   [Time] = T</div>
+  <p>مثال: بُعد سرعت = بُعد مسافت ÷ بُعد زمان:</p>
+  <div class="formula">[v] = L / T = L·T⁻¹  →  ابعاد سرعت: L T⁻¹ ✓</div>
+  <div class="note">💡 طرفین هر معادلهٔ فیزیکی باید یک بُعد داشته باشند؛ در غیر این صورت رابطه غلط است.</div>
+</section>
+
+<section id="summary">
+  <h2>🎯 جمع‌بندی فصل</h2>
+  <ul>
+    <li>فیزیک بر پایهٔ اندازه‌گیری استوار است</li>
+    <li>۷ کمیت اصلی و یکاهای SI را حفظ کنید</li>
+    <li>پیشوندها برای مقادیر خیلی بزرگ یا خیلی کوچک به کار می‌روند</li>
+    <li>هر اندازه‌گیری دارای خطاست؛ دقت و صحت را از هم تشخیص دهید</li>
+    <li>تحلیل بُعد ابزار قدرتمندی برای بررسی صحت رابطه‌هاست</li>
+  </ul>
+</section>
+
+<section id="quiz">
+  <h2>📝 آزمون خودسنجی</h2>
+  <div class="quiz-q" data-answer="b">
+    <p><b>۱.</b> کدام یک کمیت فیزیکی نیست؟</p>
+    <button data-v="a">الف) طول</button>
+    <button data-v="b">ب) زیبایی</button>
+    <button data-v="c">ج) جرم</button>
+  </div>
+  <div class="quiz-q" data-answer="a">
+    <p><b>۲.</b> یکای کمیت «زمان» در سیستم SI چیست؟</p>
+    <button data-v="a">الف) ثانیه</button>
+    <button data-v="b">ب) دقیقه</button>
+    <button data-v="c">ج) ساعت</button>
+  </div>
+  <div class="quiz-q" data-answer="c">
+    <p><b>۳.</b> ۵ سانتی‌متر برابر است با چند متر؟</p>
+    <button data-v="a">الف) ۵۰ متر</button>
+    <button data-v="b">ب) ۰٫۵ متر</button>
+    <button data-v="c">ج) ۰٫۰۵ متر</button>
+  </div>
+  <div class="quiz-q" data-answer="b">
+    <p><b>۴.</b> ابعاد سرعت کدام است؟</p>
+    <button data-v="a">الف) M·L⁻¹</button>
+    <button data-v="b">ب) L·T⁻¹</button>
+    <button data-v="c">ج) L·T⁻²</button>
+  </div>
+  <div class="quiz-q" data-answer="a">
+    <p><b>۵.</b> نزدیکی اندازه‌ها به مقدار واقعی نشان‌دهندهٔ چیست؟</p>
+    <button data-v="a">الف) صحت</button>
+    <button data-v="b">ب) دقت</button>
+    <button data-v="c">ج) خطای تصادفی</button>
+  </div>
+  <p id="score" style="text-align:center;font-size:1.2rem;color:var(--good)"></p>
+</section>
+
+</div>
+
+<footer>ساخته‌شده با ❤️ برای دانش‌آموزان فیزیک دهم</footer>
+<div id="progress"></div>
+
+<script>
+document.querySelectorAll('.quiz-q').forEach(q=>{
+  const correct = q.dataset.answer;
+  q.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      q.querySelectorAll('button').forEach(b=>b.disabled=true);
+      if(btn.dataset.v===correct){btn.classList.add('correct')}
+      else{
+        btn.classList.add('wrong');
+        q.querySelector(`button[data-v="${correct}"]`).classList.add('correct');
+      }
+      updateScore();
+    });
+  });
+});
+function updateScore(){
+  const total=document.querySelectorAll('.quiz-q').length;
+  const done=[...document.querySelectorAll('.quiz-q')].filter(q=>q.querySelector('button.correct')&&[...q.querySelectorAll('button')].some(b=>b.disabled)).length;
+  const right=document.querySelectorAll('.quiz-q button.correct').length -
+                document.querySelectorAll('.quiz-q button.wrong').length;
+  document.getElementById('score').textContent =
+    `پاسخ‌های صحیح: ${Math.max(right,0)} از ${total}`;
+}
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  document.getElementById('progress').style.width =
+    (h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+});
+</script>
+</body>
+</html>
