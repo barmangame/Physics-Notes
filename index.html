@@ -394,6 +394,18 @@
       border-top: 1px solid var(--border);
     }
 
+    /* ============ شکل‌های آموزشی دوبعدی ============ */
+    .visual-card { margin: 1.1rem 0; padding: 1rem; border: 1px solid var(--border); border-radius: 1rem; background: var(--surface-2); }
+    .visual-title { font-weight: 800; color: var(--heading); margin-bottom: .7rem; }
+    .visual-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: .75rem; }
+    .visual-item { min-width: 0; text-align: center; padding: .7rem; background: var(--surface); border: 1px solid var(--border); border-radius: .8rem; }
+    .visual-item svg { width: 100%; max-width: 230px; height: auto; display: block; margin: 0 auto .35rem; }
+    .visual-item strong { display:block; font-size:.9rem; }
+    .visual-item small { display:block; color:var(--text-muted); font-size:.78rem; line-height:1.7; }
+    .diagram-caption { color:var(--text-muted); font-size:.8rem; margin-top:.5rem; }
+    .footer-link { display:inline-flex; align-items:center; gap:.35rem; margin-top:.45rem; padding:.35rem .8rem; border:1px solid var(--accent-border); border-radius:2rem; background:var(--accent-soft); font-weight:700; }
+    .footer-credit { color:var(--text-muted); font-size:.84rem; margin-top:.4rem; }
+
     /* ============ FORMULA ============ */
     .formula {
       background: var(--surface-2);
@@ -702,6 +714,14 @@
           <p>دالتون (۱۸۰۷) مدل «توپ بیلیارد» را ارائه کرد؛ تامسون (۱۹۰۳) مدل «کیک کشمشی»؛ رادرفورد (۱۹۱۱) مدل «هسته‌ای»؛ بور (۱۹۱۳) مدل «سیاره‌ای» و سرانجام شرودینگر (۱۹۲۶) مدل «ابر الکترونی» را مطرح کرد. هر مدل با مشاهده‌ها و اطلاعات جدید اصلاح یا جایگزین شد — این آزمون‌پذیری و اصلاح‌پذیری، نقطهٔ قوت دانش فیزیک است.</p>
         </div>
 
+        <div class="visual-card">
+          <div class="visual-title">🧩 مدل‌ها، نمایش ساده‌شدهٔ واقعیت‌اند</div>
+          <div class="visual-grid">
+            <div class="visual-item"><svg viewBox="0 0 180 105" role="img" aria-label="مدل توپ ساده"><circle cx="90" cy="50" r="34" fill="#e8a45b" stroke="#9b5b19" stroke-width="2"/><path d="M65 28 Q90 50 65 72 M115 28 Q90 50 115 72 M57 50 H123" fill="none" stroke="#9b5b19" stroke-width="2"/></svg><strong>جسم واقعی</strong><small>دارای اندازه، شکل و جزئیات</small></div>
+            <div class="visual-item"><svg viewBox="0 0 180 105" role="img" aria-label="مدل نقطه‌ای"><circle cx="90" cy="50" r="7" fill="#0e7c6b"/><path d="M90 20 V35 M90 65 V80 M60 50 H75 M105 50 H120" stroke="#0e7c6b" stroke-width="2" stroke-linecap="round"/><text x="90" y="98" text-anchor="middle" fill="currentColor" font-size="11">نقطهٔ نماینده</text></svg><strong>مدل ساده‌شده</strong><small>اندازهٔ جسم را نادیده می‌گیریم</small></div>
+          </div><div class="diagram-caption">در مدل‌سازی، جزئیات کم‌اهمیت حذف می‌شوند تا بررسی پدیده آسان‌تر شود.</div>
+        </div>
+
         <div class="info-card card-note">
           <div class="ic-title">💡 نکتهٔ مهم</div>
           <p>فیزیک پایه و اساس تمامی مهندسی‌ها و فناوری‌هاست: فضاپیمای میان‌سیاره‌ای، شتاب‌دهندهٔ ذرات، سامانهٔ موقعیت‌یاب جهانی (GPS) که بر اساس نظریهٔ نسبیت اینشتین کار می‌کند، قطار مغناطیسی مگ‌لِو (دستاورد ابررساناها) و پردازنده‌های رایانه با میلیاردها ترانزیستور چند ده نانومتری، همگی بر شانهٔ قانون‌های فیزیک ساخته شده‌اند.</p>
@@ -749,6 +769,13 @@
         <h3>کمیت برداری</h3>
         <p>برای بیان برخی دیگر از کمیت‌ها، افزون بر عدد و یکا، لازم است به جهت آن نیز اشاره کنیم؛ این دسته <strong>کمیت برداری</strong> نامیده می‌شوند. مثال: جابه‌جایی <bdi class="unit">42 km</bdi> به طرف شمال، یا سرعت متوسط <bdi class="unit">25 km/h</bdi> به طرف شمال.</p>
         <p>نمونه‌های کمیت برداری: جابه‌جایی، سرعت، شتاب و نیرو.</p>
+        <div class="visual-card">
+          <div class="visual-title">➡️ فرق کمیت نرده‌ای و برداری در یک نگاه</div>
+          <div class="visual-grid">
+            <div class="visual-item"><svg viewBox="0 0 200 95" role="img" aria-label="مسافت بدون جهت"><path d="M22 53 H178" stroke="#0e7c6b" stroke-width="5" stroke-linecap="round"/><circle cx="22" cy="53" r="7" fill="#0e7c6b"/><circle cx="178" cy="53" r="7" fill="#0e7c6b"/><text x="100" y="30" text-anchor="middle" font-size="13" fill="currentColor">۵ متر</text><text x="100" y="83" text-anchor="middle" font-size="11" fill="currentColor">فقط اندازه</text></svg><strong>مسافت (نرده‌ای)</strong><small>عدد و یکا کافی است؛ جهت لازم نیست.</small></div>
+            <div class="visual-item"><svg viewBox="0 0 200 95" role="img" aria-label="جابه‌جایی دارای جهت"><path d="M22 53 H170" stroke="#2879c7" stroke-width="4" stroke-linecap="round"/><path d="M158 43 L174 53 L158 63" fill="none" stroke="#2879c7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="53" r="6" fill="#2879c7"/><text x="100" y="30" text-anchor="middle" font-size="13" fill="currentColor">۵ متر به راست</text><text x="100" y="83" text-anchor="middle" font-size="11" fill="currentColor">اندازه + جهت</text></svg><strong>جابه‌جایی (برداری)</strong><small>هم اندازه و هم جهت اهمیت دارد.</small></div>
+          </div>
+        </div>
         <ul>
           <li>برای نوشتن کمیت برداری مانند نیرو (<span class="vec">F<svg viewBox="0 0 10 6"><path d="M5 0 L9 5 L5 4 L1 5 Z"/></svg></span>) و شتاب (<span class="vec">a<svg viewBox="0 0 10 6"><path d="M5 0 L9 5 L5 4 L1 5 Z"/></svg></span>) از علامت پیکان بالای نماد استفاده می‌کنیم؛ اگر پیکان نیاید، فقط اندازهٔ کمیت (عدد و یکا) بیان شده است.</li>
           <li>جمع و ضرب کمیت‌های برداری از قوانین جمع و ضرب بردارها تبعیت می‌کند.</li>
@@ -897,6 +924,14 @@
         <div class="info-card card-example">
           <div class="ic-title">🎯 مثال دارت (مطابق کتاب)</div>
           <p>در بازی پرتاب دارت: حالت (الف) هم پرتاب‌ها دقیق‌اند (به هم نزدیک) و هم درست (در مرکز هدف)؛ حالت (ب) فقط دقیق است (پرتاب‌ها به هم نزدیک اما دور از مرکز)؛ حالت (پ) نه دقت دارد و نه درستی (پرتاب‌ها پراکنده و دور از مرکز).</p>
+          <div class="visual-card">
+            <div class="visual-title">🎯 شکل دوبعدی: دقت در برابر درستی</div>
+            <div class="visual-grid">
+              <div class="visual-item"><svg viewBox="0 0 120 120" role="img" aria-label="دارت دقیق و درست"><circle cx="60" cy="60" r="45" fill="none" stroke="#94a3b8" stroke-width="2"/><circle cx="60" cy="60" r="29" fill="none" stroke="#94a3b8" stroke-width="2"/><circle cx="60" cy="60" r="13" fill="#e9b949" stroke="#b7791f" stroke-width="2"/><g fill="#0e7c6b"><circle cx="58" cy="58" r="4"/><circle cx="63" cy="61" r="4"/><circle cx="60" cy="64" r="4"/></g></svg><strong>الف) دقیق و درست</strong><small>نقاط نزدیک هم و نزدیک مرکزند.</small></div>
+              <div class="visual-item"><svg viewBox="0 0 120 120" role="img" aria-label="دارت دقیق ولی نادرست"><circle cx="60" cy="60" r="45" fill="none" stroke="#94a3b8" stroke-width="2"/><circle cx="60" cy="60" r="29" fill="none" stroke="#94a3b8" stroke-width="2"/><circle cx="60" cy="60" r="13" fill="#e9b949" stroke="#b7791f" stroke-width="2"/><g fill="#2879c7"><circle cx="87" cy="35" r="4"/><circle cx="91" cy="38" r="4"/><circle cx="85" cy="41" r="4"/></g></svg><strong>ب) دقیق، نه درست</strong><small>نقاط نزدیک هم‌اند اما از مرکز دورند.</small></div>
+              <div class="visual-item"><svg viewBox="0 0 120 120" role="img" aria-label="دارت نه دقیق و نه درست"><circle cx="60" cy="60" r="45" fill="none" stroke="#94a3b8" stroke-width="2"/><circle cx="60" cy="60" r="29" fill="none" stroke="#94a3b8" stroke-width="2"/><circle cx="60" cy="60" r="13" fill="#e9b949" stroke="#b7791f" stroke-width="2"/><g fill="#c0392b"><circle cx="32" cy="39" r="4"/><circle cx="80" cy="26" r="4"/><circle cx="77" cy="79" r="4"/><circle cx="42" cy="88" r="4"/></g></svg><strong>پ) نه دقیق، نه درست</strong><small>نقاط پراکنده و دور از مرکزند.</small></div>
+            </div>
+          </div>
         </div>
 
         <h3>رقم‌های بامعنا</h3>
@@ -922,6 +957,13 @@
         <h3>تعریف چگالی</h3>
         <p>چگالی یکی از ویژگی‌های مهم هر ماده است که کاربردهای گوناگونی دارد. اگر مادهٔ همگنی جرم m و حجم V داشته باشد، چگالی آن:</p>
         <div class="formula">ρ = m / V</div>
+        <div class="visual-card">
+          <div class="visual-title">🧊 چگالی یعنی چه؟ جرم در حجم مشخص</div>
+          <div class="visual-grid">
+            <div class="visual-item"><svg viewBox="0 0 180 115" role="img" aria-label="مکعب با ذرات پراکنده"><path d="M40 35 L90 12 L140 35 L90 59 Z" fill="#b9e4f5" stroke="#2879c7" stroke-width="2"/><path d="M40 35 V82 L90 106 V59 Z" fill="#d8f1fb" stroke="#2879c7" stroke-width="2"/><path d="M140 35 V82 L90 106 V59 Z" fill="#a6d8ee" stroke="#2879c7" stroke-width="2"/><g fill="#2879c7"><circle cx="63" cy="48" r="3"/><circle cx="91" cy="31" r="3"/><circle cx="112" cy="46" r="3"/><circle cx="68" cy="72" r="3"/><circle cx="99" cy="78" r="3"/></g></svg><strong>چگالی کمتر</strong><small>در حجم برابر، جرم کمتری دارد.</small></div>
+            <div class="visual-item"><svg viewBox="0 0 180 115" role="img" aria-label="مکعب با ذرات متراکم"><path d="M40 35 L90 12 L140 35 L90 59 Z" fill="#a9ddca" stroke="#0e7c6b" stroke-width="2"/><path d="M40 35 V82 L90 106 V59 Z" fill="#cceee2" stroke="#0e7c6b" stroke-width="2"/><path d="M140 35 V82 L90 106 V59 Z" fill="#8bd0b7" stroke="#0e7c6b" stroke-width="2"/><g fill="#0e7c6b"><circle cx="60" cy="40" r="3"/><circle cx="77" cy="31" r="3"/><circle cx="93" cy="24" r="3"/><circle cx="111" cy="32" r="3"/><circle cx="126" cy="40" r="3"/><circle cx="58" cy="59" r="3"/><circle cx="75" cy="67" r="3"/><circle cx="93" cy="70" r="3"/><circle cx="111" cy="58" r="3"/><circle cx="76" cy="86" r="3"/><circle cx="96" cy="91" r="3"/><circle cx="118" cy="75" r="3"/></g></svg><strong>چگالی بیشتر</strong><small>در حجم برابر، جرم بیشتری دارد.</small></div>
+          </div><div class="diagram-caption">برای دو جسم هم‌حجم، جسمی که جرم بیشتری دارد چگال‌تر است؛ رابطهٔ اصلی: ρ = m/V.</div>
+        </div>
         <p>یکای چگالی در SI کیلوگرم بر متر مکعب (<bdi class="unit">kg/m³</bdi>) است. یکای متداول دیگر آن <bdi class="unit">g/cm³</bdi> است که با یکای SI این‌گونه مرتبط است:</p>
         <div class="formula">1 g/cm³ = 1000 kg/m³</div>
 
@@ -1015,7 +1057,9 @@
 
   <footer class="site-footer">
     <div class="footer-brand">طراحی و توسعه <span>B&amp;B STUDIO</span></div>
-    <div class="footer-line">مطالب درسی آموزشی <strong>امیر علی نشاد</strong></div>
+    <div class="footer-credit">کاری از گروه طراحی و توسعه <strong>B&amp;B STUDIO</strong> و <strong>بارمان بوالحسنی</strong></div>
+    <a class="footer-link" href="https://bb-studio-two.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="مشاهده وب‌سایت B&B STUDIO">🌐 وب‌سایت B&amp;B STUDIO ↗</a>
+    <div class="footer-line" style="margin-top:0.6rem;">مطالب درسی آموزشی <strong>امیر علی نشاد</strong></div>
     <div class="footer-line" style="margin-top:0.4rem;font-size:0.75rem;">بر مبنای کتاب درسی فیزیک (۱) پایهٔ دهم — فصل اول (فیزیک و اندازه‌گیری)</div>
   </footer>
 
