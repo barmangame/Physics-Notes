@@ -595,6 +595,28 @@
     }
     .overlay.show { opacity: 1; pointer-events: auto; }
 
+
+    /* ============ STUDY ENHANCEMENTS ============ */
+    .study-tools{display:flex;gap:.65rem;align-items:center;flex-wrap:wrap;margin:0 0 1rem}
+    .study-tools input{flex:1;min-width:190px;padding:.75rem 1rem;border:1px solid var(--border);border-radius:.85rem;background:var(--surface);color:var(--text);font:inherit;outline:none}
+    .study-tools input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+    #searchStatus{font-size:.78rem;color:var(--text-muted)}
+    .progress-widget{margin-top:1.2rem;padding:1rem;background:var(--surface);border:1px solid var(--border);border-radius:1rem;position:relative;z-index:1}
+    .progress-top{display:flex;justify-content:space-between;gap:.7rem;flex-wrap:wrap;font-size:.88rem}
+    .progress-top span{color:var(--accent);font-weight:700}
+    .progress-track{height:9px;background:var(--surface-3);border-radius:99px;overflow:hidden;margin:.65rem 0}
+    .progress-track span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--accent),#39b99f);border-radius:99px;transition:width .35s ease}
+    .progress-widget p{font-size:.78rem;color:var(--text-muted);margin:0}
+    .lesson-complete{display:inline-flex;align-items:center;gap:.35rem;margin:.15rem 0 .9rem;padding:.35rem .75rem;border:1px solid var(--accent-border);border-radius:2rem;background:var(--accent-soft);color:var(--accent);font:600 .78rem var(--font);cursor:pointer}
+    .lesson-complete.done{background:var(--accent);color:white;border-color:var(--accent)}
+    body.focus-mode .site-header,body.focus-mode .sidebar,body.focus-mode .to-top{display:none!important}
+    body.focus-mode .study-tools{position:fixed;bottom:1rem;left:1rem;z-index:300;margin:0}
+    body.focus-mode .study-tools input,body.focus-mode #searchStatus{display:none}
+    body.focus-mode .page-wrap{display:block;max-width:920px;padding-top:1rem}
+    body.focus-mode .hero,body.focus-mode .content-section{box-shadow:none}
+    .quiz-item.review-hidden{display:none}
+    @media(max-width:520px){.study-tools{align-items:stretch}.study-tools input{width:100%;flex-basis:100%}#focusMode{width:100%}}
+
     /* ============ RESPONSIVE ============ */
     @media (max-width: 980px) {
       :root { --header-h: 60px; }
@@ -644,6 +666,9 @@
       .content-section, .hero { box-shadow: none; border: 1px solid #ccc; }
       body { background: #fff; color: #000; }
     }
+  .quiz-hidden {
+  display: none;
+}
   </style>
 </head>
 <body>
@@ -686,6 +711,11 @@
     </aside>
 
     <main class="main-content">
+      <div class="study-tools" role="search">
+        <input id="lessonSearch" type="search" placeholder="🔎 جست‌وجو در درس‌ها، فرمول‌ها و مثال‌ها..." aria-label="جست‌وجو در جزوه" />
+        <button class="btn-reset" id="focusMode" type="button">🎯 حالت تمرکز</button>
+        <span id="searchStatus" aria-live="polite"></span>
+      </div>
 
       <section id="home" class="hero">
         <div class="hero-badge">📘 جزوهٔ آموزشی تعاملی</div>
@@ -697,6 +727,11 @@
           <div class="stat-chip"><span>Σ</span>فرمول‌نامه</div>
           <div class="stat-chip"><span>🧪</span>۳۲ تست تعاملی</div>
           <div class="stat-chip"><span>🖨️</span>قابل چاپ</div>
+        </div>
+        <div class="progress-widget">
+          <div class="progress-top"><strong>مسیر یادگیری من</strong><span id="progressLabel">۰ از ۷ بخش تکمیل‌شده</span></div>
+          <div class="progress-track"><span id="progressFill"></span></div>
+          <p>پس از مطالعهٔ هر بخش، آن را تکمیل‌شده علامت بزن. پیشرفتت روی همین دستگاه ذخیره می‌شود.</p>
         </div>
       </section>
 
@@ -712,6 +747,7 @@
         <div class="info-card card-example">
           <div class="ic-title">📌 مثالی از کتاب: تغییر مدل اتمی در طول زمان</div>
           <p>دالتون (۱۸۰۷) مدل «توپ بیلیارد» را ارائه کرد؛ تامسون (۱۹۰۳) مدل «کیک کشمشی»؛ رادرفورد (۱۹۱۱) مدل «هسته‌ای»؛ بور (۱۹۱۳) مدل «سیاره‌ای» و سرانجام شرودینگر (۱۹۲۶) مدل «ابر الکترونی» را مطرح کرد. هر مدل با مشاهده‌ها و اطلاعات جدید اصلاح یا جایگزین شد — این آزمون‌پذیری و اصلاح‌پذیری، نقطهٔ قوت دانش فیزیک است.</p>
+        <img src="at.png" alt="مدل اتمی" loading="lazy" />
         </div>
 
         <div class="visual-card">
@@ -738,6 +774,7 @@
 
         <div class="info-card card-example">
           <div class="ic-title">🏀 مثال کتاب — حرکت توپ بسکتبال</div>
+          <img src="model.png" alt="مدل سازی" loading="lazy" />
           <p>در واقعیت، توپ کرهٔ کاملی نیست، در حین حرکت به دور خود می‌چرخد، باد و مقاومت هوا بر حرکت آن اثر می‌گذارند و وزن آن با تغییر فاصله از مرکز زمین تغییر می‌کند. برای ساده‌سازی:</p>
           <ul>
             <li>اندازه و شکل توپ را نادیده می‌گیریم و آن را جسم نقطه‌ای (ذره) در نظر می‌گیریم.</li>
@@ -911,7 +948,8 @@
           <li><strong>مهارت شخص آزمایشگر:</strong> نحوهٔ خواندن نتیجه مهم است؛ در خواندن مدرج‌ها باید از منظر عمود نگاه کرد تا «خطای منظر» (اختلاف منظر) خطا را افزایش ندهد.</li>
           <li><strong>تعداد دفعات اندازه‌گیری:</strong> برای کاهش خطا، اندازه‌گیری را چند بار تکرار می‌کنند و میانگین عددها را گزارش می‌کنند؛ اگر یک یا دو عدد اختلاف زیادی با بقیه داشته باشد (عدد پرت)، در میانگین‌گیری به حساب نمی‌آید.</li>
         </ol>
-
+         <img src="de.png.png" alt="دقت اندازه گیری" loading="lazy" />
+        <p>در این شکل دقیق ترین اندازه فرد A  هست</p>
         <div class="info-card card-example">
           <div class="ic-title">✏️ مثال حل‌شده ۶ — تکرار اندازه‌گیری و میانگین</div>
           <p>طول یک میله چهار بار اندازه‌گیری می‌شود: <bdi class="unit">12.1 cm</bdi>، <bdi class="unit">12.3 cm</bdi>، <bdi class="unit">12.2 cm</bdi> و <bdi class="unit">12.9 cm</bdi>. نتیجهٔ گزارش‌شده چیست؟</p>
@@ -1045,22 +1083,24 @@
           <div class="section-num">؟</div>
           <div style="flex:1;min-width:0;"><h2>تست‌های تعاملی فصل اول</h2><small>۳۲ تست چهارگزینه‌ای آموزشی — با کلیک روی هر گزینه، پاسخ و راه‌حل کامل نمایش داده می‌شود</small></div>
         </div>
-        <div class="quiz-toolbar">
-          <div class="score-pill" id="scorePill">پاسخ صحیح: ۰ از ۳۲</div>
-          <button class="btn-reset" id="resetQuiz">شروع دوباره</button>
-        </div>
-        <div id="quizList"></div>
+<div class="quiz-toolbar">
+  <button class="btn-reset" id="toggleQuiz">📝 نمایش تست‌ها</button>
+  <div class="score-pill" id="scorePill">پاسخ صحیح: ۰ از ۳۲</div>
+  <button class="btn-reset" id="reviewWrong">🔁 مرور پاسخ‌های غلط</button>
+  <button class="btn-reset" id="resetQuiz">شروع دوباره</button>
+</div>
+<div id="quizList" class="quiz-hidden"></div>
       </section>
 
     </main>
   </div>
 
   <footer class="site-footer">
-    <div class="footer-brand">طراحی و توسعه <span>B&amp;B STUDIO</span></div>
-    <div class="footer-credit">کاری از گروه طراحی و توسعه <strong>B&amp;B STUDIO</strong> و <strong>بارمان بوالحسنی</strong></div>
-    <a class="footer-link" href="https://bb-studio-two.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="مشاهده وب‌سایت B&B STUDIO">🌐 وب‌سایت B&amp;B STUDIO ↗</a>
-    <div class="footer-line" style="margin-top:0.6rem;">مطالب درسی آموزشی <strong>امیر علی نشاد</strong></div>
-    <div class="footer-line" style="margin-top:0.4rem;font-size:0.75rem;">بر مبنای کتاب درسی فیزیک (۱) پایهٔ دهم — فصل اول (فیزیک و اندازه‌گیری)</div>
+    <div class="footer-line" style="margin-top:0.4rem;font-size:0.75rem;">بر مبنای کتاب درسی فیزیک (۱) پایهٔ دهم — فصل اول (فیزیک و اندازه‌گیری)
+  </div>
+  <div> بزودی لینک فصل دوم در همین قسمت اضافه خواهد شد</div> 
+    <div>طراحی و اطلاعات آموزشی: امیرعلی نشاد و بارمان بوالحسنی</div>
+    <div>دبیرستان سما پاسداران</div>
   </footer>
 
   <button class="to-top" id="toTop" title="بازگشت به بالا" aria-label="بازگشت به بالا">↑</button>
@@ -1341,8 +1381,87 @@
       updateScore();
     }
 
-    renderQuiz();
-    resetQuizBtn.addEventListener('click', resetQuiz);
+    /* ============ TOGGLE QUIZ ============ */
+const toggleQuizBtn = document.getElementById('toggleQuiz');
+let quizOpen = false;
+
+toggleQuizBtn.addEventListener('click', () => {
+  quizOpen = !quizOpen;
+  quizList.classList.toggle('quiz-hidden', !quizOpen);
+  toggleQuizBtn.textContent = quizOpen ? '📝 بستن تست‌ها' : '📝 نمایش تست‌ها';
+  if (quizOpen) {
+    // اسکرول نرم به ابتدای تست‌ها
+    const offset = headerHeight() + 12;
+    const targetY = quizList.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top: targetY, behavior: 'smooth' });
+  }
+});renderQuiz();
+    resetQuizBtn.addEventListener('click', () => { resetQuiz(); reviewWrongOnly = false; reviewWrongBtn.textContent = '🔁 مرور پاسخ‌های غلط'; quizList.querySelectorAll('.quiz-item').forEach(el => el.classList.remove('review-hidden')); });
+
+    /* ============ STUDY TOOLS ============ */
+    const lessonIds = ['lesson1','lesson2','lesson3','lesson4','lesson5','lesson6','formulas'];
+    const progressKey = 'physics10-ch1-progress-v1';
+    let completedLessons = [];
+    try { completedLessons = JSON.parse(localStorage.getItem(progressKey) || '[]'); } catch (e) { completedLessons = []; }
+    const progressFill = document.getElementById('progressFill');
+    const progressLabel = document.getElementById('progressLabel');
+    function updateProgress() {
+      const count = lessonIds.filter(id => completedLessons.includes(id)).length;
+      progressFill.style.width = `${count / lessonIds.length * 100}%`;
+      progressLabel.textContent = `${count} از ${lessonIds.length} بخش تکمیل‌شده`;
+      try { localStorage.setItem(progressKey, JSON.stringify(completedLessons)); } catch (e) {}
+    }
+    lessonIds.forEach((id, index) => {
+      const section = document.getElementById(id);
+      if (!section) return;
+      const button = document.createElement('button');
+      button.type = 'button'; button.className = 'lesson-complete';
+      const refresh = () => { const done = completedLessons.includes(id); button.classList.toggle('done', done); button.textContent = done ? '✓ این بخش تکمیل شد' : '○ علامت‌گذاری به‌عنوان مطالعه‌شده'; };
+      button.addEventListener('click', () => {
+        completedLessons = completedLessons.includes(id) ? completedLessons.filter(x => x !== id) : [...completedLessons, id];
+        refresh(); updateProgress();
+      });
+      const head = section.querySelector('.section-head');
+      if (head) head.insertAdjacentElement('afterend', button);
+      refresh();
+    });
+    updateProgress();
+
+    const searchInput = document.getElementById('lessonSearch');
+    const searchStatus = document.getElementById('searchStatus');
+    searchInput.addEventListener('input', () => {
+      const term = searchInput.value.trim().toLocaleLowerCase('fa');
+      let shown = 0;
+      document.querySelectorAll('.main-content > section[id]').forEach(section => {
+        const match = !term || section.innerText.toLocaleLowerCase('fa').includes(term);
+        section.hidden = !match;
+        if (match) shown++;
+      });
+      searchStatus.textContent = term ? `${shown} بخش پیدا شد` : '';
+    });
+
+    const focusBtn = document.getElementById('focusMode');
+    focusBtn.addEventListener('click', () => {
+      document.body.classList.toggle('focus-mode');
+      const active = document.body.classList.contains('focus-mode');
+      focusBtn.textContent = active ? '✕ خروج از حالت تمرکز' : '🎯 حالت تمرکز';
+    });
+
+    const reviewWrongBtn = document.getElementById('reviewWrong');
+    let reviewWrongOnly = false;
+    reviewWrongBtn.addEventListener('click', () => {
+      reviewWrongOnly = !reviewWrongOnly;
+      quizList.querySelectorAll('.quiz-item').forEach((item, idx) => {
+        const wrong = state.revealed[idx] && state.answers[idx] === false;
+        item.classList.toggle('review-hidden', reviewWrongOnly && !wrong);
+      });
+      reviewWrongBtn.textContent = reviewWrongOnly ? 'نمایش همهٔ سؤال‌ها' : '🔁 مرور پاسخ‌های غلط';
+      if (reviewWrongOnly && !state.answers.some((a, i) => state.revealed[i] && a === false)) {
+        reviewWrongOnly = false;
+        quizList.querySelectorAll('.quiz-item').forEach(item => item.classList.remove('review-hidden'));
+        reviewWrongBtn.textContent = 'هنوز پاسخ غلطی ثبت نشده';
+      }
+    });
 
     /* ============ INIT ACTIVE NAV ============ */
     (function initActive() {
